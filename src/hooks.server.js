@@ -18,7 +18,7 @@ export const handle = async ({ event, resolve }) => {
   // If route locale is not supported
   if (!locale) {
     // Get user preferred locale
-    locale = request.headers.get('accept-language')?.split(',').shift()?.toLowerCase() || defaultLocale;
+    locale = request.headers.get('accept-language')?.split(',').shift()?.toLowerCase().split('-').shift() || defaultLocale;
 
     pathname = pathname.replaceAll('/undefined', '');
 
