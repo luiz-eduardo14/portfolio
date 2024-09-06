@@ -128,7 +128,7 @@
 		<div class="flex-col flex-1 self-center h-full justify-center m-t-7">
 			{#each items as item}
 				<a
-					href={`${base}/${$locale}/${item.to}`}
+					href={`${base}/${$locale}${item.to}`}
 					class="nav-menu-item !text-[var(--secondary-text)] gap-5"
 					on:click={() => toggleExpanded(false)}
 				>
