@@ -1,0 +1,1 @@
+const e="Projetos",s="Habilidades",o="Experiência",t="Educação",c="Currículo",n="Português",r="Inglês",u={projects:e,skills:s,experience:o,education:t,resume:c,portuguese:n,english:r};export{u as default,t as education,r as english,o as experience,n as portuguese,e as projects,c as resume,s as skills};
