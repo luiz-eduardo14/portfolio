@@ -2,9 +2,10 @@
 	import ExperienceCard from '$lib/components/ExperienceCard/ExperienceCard.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
-	import { items, title } from '@data/experience';
+	import { items } from '@data/experience';
 	import type { Experience } from '$lib/types';
 	import { isBlank } from '@riadh-adrani/utils';
+	import { t } from '$lib/translations';
 
 	let result: Array<Experience> = [...items];
 
@@ -23,6 +24,8 @@
 				it.description.toLowerCase().includes(query)
 		);
 	};
+	export let title;
+	title = $t('nav.experience');
 </script>
 
 <SearchPage {title} on:search={onSearch}>
@@ -30,7 +33,7 @@
 		{#if result.length === 0}
 			<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
 				<UIcon icon="i-carbon-development" classes="text-3.5em" />
-				<p class="font-300">Could not find anything...</p>
+				<p class="font-300">{$t('general.not-found-search')}</p>
 			</div>
 		{:else}
 			<div

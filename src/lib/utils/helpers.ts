@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import type { Item, Skill } from '$lib/types';
+import { t } from '$lib/translations'
 
 dayjs.extend(duration);
 
@@ -49,26 +50,29 @@ export function getTimeDiff(date1: Date, date2 = new Date(Date.now() + 1000 * 60
 
 	const duration = dayjs.duration(d2.diff(d1));
 
-	let n = 0;
-	let u = 'day';
+	let number = 0;
+	let unit = 'day';
 
 	if (duration.as('days') <= 7) {
-		u = 'day';
-		n = duration.as('days');
+		unit = 'day';
+		number = duration.as('days');
 	} else if (duration.as('months') <= 1) {
-		u = 'week';
-		n = duration.as('weeks');
+		unit = 'week';
+		number = duration.as('weeks');
 	} else if (duration.as('years') <= 1) {
-		u = 'month';
-		n = duration.as('months');
+		unit = 'month';
+		number = duration.as('months');
 	} else {
-		u = 'year';
-		n = duration.as('years');
+		unit = 'year';
+		number = duration.as('years');
 	}
 
-	n = Math.trunc(n);
+	number = Math.trunc(number);
 
-	return `${Math.trunc(n)} ${u}${n > 1 ? 's' : ''}`;
+	return {
+		number,
+		unit: ``
+	};
 }
 
 export type ItemOrSkill = Item | Skill;

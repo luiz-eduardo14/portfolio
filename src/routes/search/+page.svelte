@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { title } from '@data/search';
 	import { filterItemsByQuery, type ItemOrSkill } from '$lib/utils/helpers';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import * as experiences from '@data/experience';
 	import * as projects from '@data/projects';
 	import * as skills from '@data/skills';
+	import { t } from '$lib/translations';
 
 	import type { Icon, Item, Skill } from '$lib/types';
 
@@ -65,6 +65,8 @@
 			}))
 		);
 	}
+	export let title;
+	title = $t('general.Search');
 </script>
 
 <SearchPage {title} on:search={(e) => (query = e.detail.search)}>
@@ -72,7 +74,7 @@
 	{#if !query}
 		<div class="flex-1 self-center col-center m-t-10 gap-5 font-300 text-[var(--accent-text)]">
 			<UIcon icon="i-carbon-search-locate-mirror" classes="text-2em" />
-			<span> Try typing something... </span>
+			<span> {$t('general.not-found-search')}</span>
 		</div>
 	{:else}
 		<div>

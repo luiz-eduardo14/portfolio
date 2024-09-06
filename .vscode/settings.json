@@ -19,5 +19,8 @@
 		"Thierclieux",
 		"todos",
 		"Wroddit"
+	],
+	"i18n-ally.localesPaths": [
+		"src/lib/locale"
 	]
 }

@@ -3,6 +3,7 @@
 	import { getAssetURL } from '$lib/data/assets';
 	import { title } from '@data/experience';
 	import { getTimeDiff } from '$lib/utils';
+	import { t } from '$lib/translations';
 
 	import type { Experience } from '$lib/types';
 
@@ -17,7 +18,14 @@
 
 	export let data: { experience?: Experience };
 
-	$: computedTitle = data.experience ? `${data.experience.name} - ${title}` : title;
+	$: computedTitle = data.experience ? `${data.experience.name} - ${$t('nav.experience')}` : title;
+	export let timeDiffFormatted;
+	if (data.experience) {
+		const timeDiff = getTimeDiff(data.experience.period.from, data.experience.period.to);
+		const unit = $t(`time.${timeDiff.unit}`);
+		timeDiffFormatted = `${timeDiff.number} ${unit}`;
+	}
+
 </script>
 
 <TabTitle title={computedTitle} />
@@ -39,7 +47,7 @@
 						{data.experience.company} · {data.experience.location} · {data.experience.type}
 					</p>
 					<p class="font-300 text-0.9em text-[var(--tertiary-text)] m-y-2 text-center">
-						{getTimeDiff(data.experience.period.from, data.experience.period.to)}
+						{timeDiffFormatted}
 					</p>
 					<div class="w-75%">
 						<CardDivider />

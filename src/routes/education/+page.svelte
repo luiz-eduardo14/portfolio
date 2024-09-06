@@ -5,10 +5,11 @@
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import { getAssetURL } from '$lib/data/assets';
 
-	import { title, items } from '@data/education';
+	import { items } from '@data/education';
 	import type { Education } from '$lib/types';
-	import { computeExactDuration, getTimeDiff } from '$lib/utils';
+	import { computeExactDuration } from '$lib/utils';
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';
+	import { t } from '$lib/translations';
 
 	let search = '';
 
@@ -28,6 +29,20 @@
 			);
 		});
 	};
+	function localeTimeExpression(duration: string): string {
+			return duration
+					.replace('years', $t('time.years'))
+					.replace('year', $t('time.year'))
+					.replace('months', $t('time.months'))
+					.replace('month', $t('time.month'))
+					.replace('weeks', $t('time.weeks'))
+					.replace('week', $t('time.week'))
+					.replace('days', $t('time.days'))
+					.replace('day', $t('time.day'))
+					.replace('and', $t('general.and'));
+	};
+	export let title;
+	title = $t('nav.education');
 </script>
 
 <SearchPage {title} {search} on:search={onSearch}>
@@ -35,7 +50,7 @@
 		{#if result.length === 0}
 			<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
 				<UIcon icon="i-carbon-development" classes="text-3.5em" />
-				<p class="font-300">Could not find anything...</p>
+				<p class="font-300">{$t('general.not-found-search')}</p>
 			</div>
 		{:else}
 			<div
@@ -67,12 +82,12 @@
 									<CardDivider />
 									<div class="row items-center gap-2">
 										<UIcon icon="i-carbon-location" />
-										{education.location}
+										{$t(`education.location.${education.location}`)}
 									</div>
 									<CardDivider />
 									<div class="row items-center gap-2">
 										<UIcon icon="i-carbon-time" />
-										{computeExactDuration(education.period.from, education.period.to)}
+										{localeTimeExpression(computeExactDuration(education.period.from, education.period.to))}
 									</div>
 									<CardDivider />
 								</div>

@@ -16,6 +16,7 @@
 	import Chip from '$lib/components/Chip/Chip.svelte';
 	import Banner from '$lib/components/Banner/Banner.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import { t, locale } from '$lib/translations';
 
 	type Related = {
 		display: string;
@@ -36,8 +37,8 @@
 			return [];
 		}
 
-		projects.items.forEach((item) => {
-			if (item.skills.some((tech) => tech.slug === skill.slug)) {
+		projects.items.forEach((item: any) => {
+			if (item.skills.some((tech: any) => tech.slug === skill.slug)) {
 				out.push({
 					img: getAssetURL(item.logo),
 					display: `${item.name} (${item.type})`,
@@ -48,8 +49,8 @@
 			}
 		});
 
-		experiences.items.forEach((item) => {
-			if (item.skills.some((tech) => tech.slug === skill.slug)) {
+		experiences.items.forEach((item: any) => {
+			if (item.skills.some((tech: any) => tech.slug === skill.slug)) {
 				out.push({
 					img: getAssetURL(item.logo),
 					display: `${item.name} @ ${item.company}`,
@@ -63,7 +64,15 @@
 		return out;
 	};
 
-	$: computedTitle = data.skill ? `${data.skill.name} - ${title}` : title;
+	export let language;
+
+	locale.subscribe((value) => {
+		language = value;
+	});
+
+	$: computedTitle = data.skill ? `${data.skill.name} - ${$t('nav.skills')}` : title;
+
+	$: description = data.skill ? $t(`skills.${data.skill.description}`) : '';
 
 	$: related = data.skill ? getRelatedProjects() : [];
 </script>
@@ -84,7 +93,7 @@
 			<div class="pt-3 pb-1 overflow-x-hidden w-full">
 				<div class="px-10px m-y-5">
 					{#if data.skill.description}
-						<Markdown content={data.skill.description ?? 'This place is yet to be filled...'} />
+						<Markdown content={description} />
 					{:else}
 						<div class="p-5 col-center gap-3 m-y-auto text-[var(--border)]">
 							<UIcon icon="i-carbon-text-font" classes="text-3.5em" />

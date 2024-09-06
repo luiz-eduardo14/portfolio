@@ -10,25 +10,40 @@
 	import UIcon from '../Icon/UIcon.svelte';
 	import Chip from '../Chip/Chip.svelte';
 	import CardDivider from '../Card/CardDivider.svelte';
+	import { t } from '$lib/translations';
 
 	export let experience: Experience;
+	function localeTimeExpression(duration: string): string {
+			return duration
+					.replace('years', $t('time.years'))
+					.replace('year', $t('time.year'))
+					.replace('months', $t('time.months'))
+					.replace('month', $t('time.month'))
+					.replace('weeks', $t('time.weeks'))
+					.replace('week', $t('time.week'))
+					.replace('days', $t('time.days'))
+					.replace('day', $t('time.day'))
+					.replace('and', $t('general.and'));
+	};
 
 	// const months = getTimeDiff(experience.period.from, experience.period.to);
-	const exactDuration = computeExactDuration(experience.period.from, experience.period.to);
+	const exactDuration = localeTimeExpression(computeExactDuration(experience.period.from, experience.period.to));
 
-	const from = `${getMonthName(
+	const from = `${$t(`time.${getMonthName(
 		experience.period.from.getMonth()
-	)} ${experience.period.from.getFullYear()}`;
+	)}`)} ${experience.period.from.getFullYear()}`;
 	const to = experience.period.to
-		? `${getMonthName(experience.period.to.getMonth())} ${experience.period.to.getFullYear()}`
-		: 'Present';
+		? `${$t(`time.${getMonthName(
+			experience.period.to.getMonth()
+		)}`)} ${experience.period.to.getFullYear()}`
+		: $t('time.Present');
 
 	const period = `${from} - ${to}`;
 
 	$: info = [
 		{ label: experience.company, icon: 'i-carbon-building' },
 		{ label: experience.location, icon: 'i-carbon-location' },
-		{ label: experience.contract, icon: 'i-carbon-hourglass' }
+		{ label: $t(`experience.contractType.${experience.contract}`), icon: 'i-carbon-hourglass' }
 	] as const;
 </script>
 
@@ -41,7 +56,7 @@
 	<div class="col md:flex-row items-start gap-5 md:gap-1">
 		<CardLogo src={getAssetURL(experience.logo)} alt={experience.company} size={55} />
 		<div class="col ml-0 md:ml-[20px] gap-3 w-full">
-			<div class="col ">
+			<div class="col">
 				<h3
 					class="flex text-[0.9em] flex-col items-start sm:flex-row sm:items-center justify-between sm:gap-5 md:flex-col md:items-start md:gap-0 lg:flex-row lg:items-center"
 				>

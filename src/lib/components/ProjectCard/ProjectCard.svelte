@@ -11,19 +11,34 @@
 	import { getAssetURL } from '$lib/data/assets';
 	import { base } from '$app/paths';
 	import UIcon from '../Icon/UIcon.svelte';
+	import { t } from '$lib/translations';
 
 	export let project: Project;
-	$: months = countMonths(project.period.from, project.period.to);
-	// $: period = `${months} month${months > 1 ? 's' : ''}`;
-	// $: period = `${getTimeDiff(
-	// 	project.period.from,
-	// 	project.period.to ?? new Date(Date.now() + 1000 * 60 * 60 * 24)
-	// )}`;
-	$: period = computeExactDuration(project.period.from, project.period.to);
-	$: from = `${getMonthName(project.period.from.getMonth())} ${project.period.from.getFullYear()}`;
+
+	function localeTimeExpression(duration: string): string {
+			return duration
+					.replace('years', $t('time.years'))
+					.replace('year', $t('time.year'))
+					.replace('months', $t('time.months'))
+					.replace('month', $t('time.month'))
+					.replace('weeks', $t('time.weeks'))
+					.replace('week', $t('time.week'))
+					.replace('days', $t('time.days'))
+					.replace('day', $t('time.day'))
+					.replace('and', $t('general.and'));
+	};
+
+	$: period = localeTimeExpression(computeExactDuration(project.period.from, project.period.to));
+	$: from = {
+		month: getMonthName(project.period.from.getMonth()),
+		year: project.period.from.getFullYear()
+	};
 	$: to = project.period.to
-		? `${getMonthName(project.period.to.getMonth())} ${project.period.to.getFullYear()}`
-		: 'now';
+		? {
+				month: getMonthName(project.period.to.getMonth()),
+				year: project.period.to.getFullYear()
+		  }
+		: null;
 </script>
 
 <Card color={project.color} href={`${base}/projects/${project.slug}`}>
@@ -55,9 +70,9 @@
 		</p>
 	</div>
 	<div class="row justify-between text-0.8em font-400">
-		<Chip>{from}</Chip>
-		{#if from !== to}
-			<Chip>{to}</Chip>
+		<Chip>{$t(`time.${from.month}`)} {from.year}</Chip>
+		{#if from.month !== to?.month && from.year !== to?.year}
+			<Chip>{$t(`time.${to?.month ?? 'now'}`)}</Chip>
 		{/if}
 	</div>
 	<CardDivider />

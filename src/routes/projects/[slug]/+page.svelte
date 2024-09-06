@@ -14,6 +14,7 @@
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 	import Screenshot from '$lib/components/Screenshot/Screenshot.svelte';
+	import { t } from '$lib/translations';
 
 	export let data: { project?: Project };
 
@@ -26,7 +27,7 @@
 			? screenshots[screenIndex]
 			: undefined;
 
-	$: computedTitle = data.project ? `${data.project.name} - ${title}` : title;
+	$: computedTitle = data.project ? `${data.project.name} - ${$t('nav.projects')}` : title;
 </script>
 
 <TabTitle title={computedTitle} />

@@ -16,7 +16,7 @@ export const items: Array<Project> = [
 		period: {
 			from: new Date()
 		},
-		skills: getSkills('angular', 'ts', 'tailwind'),
+		skills: getSkills('angular', 'ts', 'js', 'tailwind'),
 		type: 'Website Template'
 	},
 	{
@@ -27,10 +27,10 @@ export const items: Array<Project> = [
 		shortDescription:
 			'A Vercel-like developer portfolio website template made with Typescript and SvelteKit.',
 		links: [{ to: 'https://github.com/RiadhAdrani/slick-portfolio-svelte', label: 'GitHub' }],
-		logo: Assets.Svelte,
+		logo: Assets.Android,
 		name: 'Slick Portfolio',
 		period: {
-			from: new Date()
+			from: new Date(2005, 1, 20)
 		},
 		skills: getSkills('svelte', 'ts', 'tailwind', 'sass'),
 		type: 'Website Template',

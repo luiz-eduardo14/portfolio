@@ -1,8 +1,11 @@
 <script>
-	import { data, title } from '@data/resume';
+	import { data } from '@data/resume';
+	import { t } from '$lib/translations';
 
 	import Chip from '$lib/components/Chip/Chip.svelte';
 	import CommonPage from '$lib/components/CommonPage.svelte';
+	export let title;
+	title = $t('nav.resume');
 </script>
 
 <CommonPage {title}>

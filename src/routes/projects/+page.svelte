@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { items, title } from '@data/projects';
+	import { items } from '@data/projects';
 	import * as skills from '@data/skills';
 	import { onMount } from 'svelte';
 
@@ -9,6 +9,7 @@
 	import ProjectCard from '$lib/components/ProjectCard/ProjectCard.svelte';
 	import SearchPage from '$lib/components/SearchPage.svelte';
 	import UIcon from '$lib/components/Icon/UIcon.svelte';
+	import { t } from '$lib/translations';
 
 	interface SkillFilter extends Skill {
 		isSelected?: boolean;
@@ -68,6 +69,8 @@
 			}
 		}
 	});
+	export let title;
+	title = $t('nav.projects');
 </script>
 
 <SearchPage {title} on:search={onSearch}>
@@ -81,7 +84,7 @@
 	{#if displayed.length === 0}
 		<div class="p-5 col-center gap-3 m-y-auto text-[var(--accent-text)] flex-1">
 			<UIcon icon="i-carbon-cube" classes="text-3.5em" />
-			<p class="font-300">Could not find anything...</p>
+			<p class="font-300">{$t('general.not-found-search')}</p>
 		</div>
 	{:else}
 		<div class="projects-list mt-5">

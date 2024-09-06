@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { theme, toggleTheme } from '$lib/stores/theme';
+	import { Dropdown } from 'flowbite-svelte';
 	import { items } from '@data/navbar';
 	import * as HOME from '@data/home';
+	import { t, setLocale } from '$lib/translations';
+	import BrazilIcon from '$lib/components/NavMenu/locale/brazil.svg?component';
+	import UnitedStatesIcon from '$lib/components/NavMenu/locale/united-states.svg?component';
 
 	import { base } from '$app/paths';
 	import UIcon from '../Icon/UIcon.svelte';
@@ -18,6 +22,9 @@
 			expanded = v;
 		}
 	};
+	function addCookie(name: string, value: string) {
+		document.cookie = `${name}=${value};path=/`;
+	}
 </script>
 
 <div class="nav-menu">
@@ -29,7 +36,8 @@
 			<UIcon icon="i-carbon-code" classes="text-2em" />
 			<span
 				class="ml-2 text-md font-bold hidden md:inline overflow-hidden whitespace-nowrap text-ellipsis"
-				>{HOME.name} {HOME.lastName}
+				>
+				{HOME.name} {HOME.lastName}
 			</span>
 		</a>
 		<div class="flex-1 block overflow-hidden md:hidden whitespace-nowrap text-ellipsis text-center">
@@ -40,7 +48,7 @@
 			{#each items as item (item.title)}
 				<a href={`${base}${item.to}`} class="nav-menu-item !text-[var(--secondary-text)]">
 					<UIcon icon={item.icon} classes="text-1.3em" />
-					<span class="nav-menu-item-label">{item.title}</span>
+					<span class="nav-menu-item-label">{$t(`nav.${item.title}`)}</span>
 				</a>
 			{/each}
 		</div>
@@ -64,6 +72,46 @@
 						<UIcon icon="i-carbon-sun" />
 					{/if}
 				</button>
+				<!-- <button id="language-selector" class="bg-transparent text-1em border-none cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)] px-2">
+					<UIcon icon="i-material-symbols-language" />
+				</button> -->
+				<Dropdown 
+						triggeredBy="#language-selector" 
+						classContainer="bg-[color:var(--main-hover)] text-[var(--secondary-text)]"
+					>
+					<div class="flex flex-col gap-2">
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<div 
+							class="ml-[-36px] px-2 flex gap-2 cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)]"
+							on:click={() => {
+								setLocale('pt-br');
+								sessionStorage.setItem('lang', 'pt-br');
+								addCookie('lang', 'pt-br');
+							}}
+						>
+							<BrazilIcon width={24} height={24} />
+							<span>
+								{$t('nav.portuguese')}
+							</span>
+						</div>
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						<div 
+							class="ml-[-36px] px-2 flex gap-2 cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)]"
+							on:click={() => {
+								setLocale('en-us');
+								sessionStorage.setItem('lang', 'en-us');
+								addCookie('lang', 'en-us');
+							}}
+						>
+							<UnitedStatesIcon width={24} height={24} />
+							<span>
+								{$t('nav.english')}
+							</span>
+						</div>
+					</div>
+				</Dropdown>
 			</div>
 			<div class="col-center md:hidden h-full hover:bg-[var(--main-hover)] cursor-pointer">
 				<!-- svelte-ignore a11y-no-static-element-interactions -->

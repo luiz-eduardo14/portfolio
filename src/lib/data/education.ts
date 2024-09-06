@@ -3,28 +3,28 @@ import type { Education } from '../types';
 
 export const items: Array<Education> = [
 	{
-		degree: 'Bachelor degree of Computer Science',
+		degree: 'Tecnólogo em análise e desenvolvimento de sistemas',
 		description: '',
-		location: 'Tunisia',
-		logo: Assets.Unknown,
-		name: '',
-		organization: 'ISTIC',
-		period: { from: new Date(2020, 0, 1), to: new Date(2022, 5, 1) },
 		shortDescription: '',
+		location: 'Brazil',
+		logo: Assets.Senac,
+		name: '',
+		organization: 'Senac',
+		period: { from: new Date(2022, 1, 1), to: new Date(2024, 6, 1) },
 		slug: 'dummy-education-item',
-		subjects: ['C', 'Algorithm', 'Algebra', 'Python', 'C++', 'Java', 'English']
+		subjects: ['Spring Boot', 'MySQL', 'Javascript', 'React', 'React Native', 'HTML', 'CSS', 'Git']
 	},
 	{
-		degree: 'PhD of Computer Science',
+		degree: 'Jovem Programador',
 		description: '',
-		location: 'USA',
-		logo: Assets.Unknown,
-		name: '',
-		organization: 'MIT',
-		period: { from: new Date(2023, 0, 1) },
 		shortDescription: '',
+		location: 'Brazil',
+		logo: Assets.Senac,
+		name: '',
+		organization: 'Senac',
+		period: { from: new Date(2021, 5, 1), to: new Date(2022, 6, 1) },
 		slug: 'dummy-education-item-2',
-		subjects: ['Assembly', 'Rust', 'Computer Architecture', 'Algorithms and Data structures']
+		subjects: ['Spring Boot', 'MySQL', 'Javascript', 'HTML', 'CSS', 'Java SE', 'Java EE', 'Git']
 	}
 ];
 
