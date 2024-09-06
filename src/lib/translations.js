@@ -1,11 +1,19 @@
 import i18n from 'sveltekit-i18n';
 
+const supportedLanguagesSsr = [{
+  lang: 'pt-br',
+}, {
+  lang: 'pt-br',
+}];
+
+const defaultLocale = 'pt-br';
+
 /** @type {import('sveltekit-i18n').Config} */
 const config = ({
-  fallbackLocale: 'en-us',
+  fallbackLocale: defaultLocale,
   loaders: [
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'home',
       loader: async () => (
         await import('./locale/en-us/home.json')
@@ -19,7 +27,7 @@ const config = ({
       ).default,
     },
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'nav',
       loader: async () => (
         await import('./locale/en-us/nav.json')
@@ -33,7 +41,7 @@ const config = ({
       ).default,
     },
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'categories',
       loader: async () => (
         await import('./locale/en-us/categories.json')
@@ -47,7 +55,7 @@ const config = ({
       ).default,
     },
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'general',
       loader: async () => (
         await import('./locale/en-us/general.json')
@@ -61,7 +69,7 @@ const config = ({
       ).default,
     },
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'time',
       loader: async () => (
         await import('./locale/en-us/time.json')
@@ -82,7 +90,7 @@ const config = ({
       ).default,
     },
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'skills',
       loader: async () => (
         await import('./locale/en-us/skills/index')
@@ -96,14 +104,14 @@ const config = ({
       ).default,
     },
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'education',
       loader: async () => (
         await import('./locale/en-us/education/index.js')
       ).default,
     },
     {
-      locale: 'en-us',
+      locale: 'pt-br',
       key: 'experience',
       loader: async () => (
         await import('./locale/en-us/experience/index')
@@ -112,4 +120,28 @@ const config = ({
   ],
 });
 
-export const { t, loading, locales, locale, translations, loadTranslations, addTranslations, setLocale, setRoute } = new i18n(config);
+const {
+  t,
+  loading,
+  locales,
+  locale,
+  translations,
+  loadTranslations,
+  addTranslations,
+  setLocale,
+  setRoute,
+} = new i18n(config);
+
+export {
+  t,
+  loading,
+  locales,
+  locale,
+  translations,
+  loadTranslations,
+  addTranslations,
+  setLocale,
+  setRoute,
+  defaultLocale,
+  supportedLanguagesSsr
+};

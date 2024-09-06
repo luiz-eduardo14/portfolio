@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapterStatic from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 const base = '/portfolio';
@@ -14,7 +14,9 @@ const config = {
 		}
 	},
 	kit: {
-		adapter: adapter({ fallback: '404.html' }),
+		adapter: adapterStatic({
+			fallback: undefined
+		}),
 		alias: {
 			$lib: './src/lib',
 			'@data': './src/lib/data',

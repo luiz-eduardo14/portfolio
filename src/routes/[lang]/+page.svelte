@@ -1,16 +1,16 @@
-<script lang="ts">
+<script>
 	import Carrousel from '$lib/components/Carrousel/Carrousel.svelte';
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 	import { t } from '$lib/translations';
 	import { getPlatfromIcon } from '$lib/utils';
 	import { useTitle } from '$lib/utils/helpers';
-	import { titleSuffix } from '@data/app';
-	import { lastName, links, name, skills } from '@data/home';
-	import { items as skillsItems } from '@data/skills';
+	import { titleSuffix } from '$lib/data/app';
+	import { lastName, links, name, skills } from '$lib/data/home';
+	import { items as skillsItems } from '$lib/data/skills';
 	import { isBlank } from '@riadh-adrani/utils';
 
-	const isEmail = (email: string): boolean => {
+	const isEmail = email => {
 		const reg =
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 

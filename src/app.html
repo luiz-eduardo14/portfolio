@@ -3,13 +3,6 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
-		<script>
-			function addCookie(name, value, days) {
-				document.cookie = `${name}=${value};path=/`;
-			}
-			const language = sessionStorage.getItem('lang') || navigator.language;
-			addCookie('lang', language);
-		</script>
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>

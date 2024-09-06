@@ -6,9 +6,6 @@
 	import { onMount } from 'svelte';
 	import { waitLocale } from 'svelte-i18n'
 
-	// ? moved to +layout.server.ts : will be deleted when we make sure that everything is alright
-	// export const prerender = true;
-
 	export let show = false;
 	onMount(() => {
 		onHydrated()

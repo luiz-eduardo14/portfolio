@@ -4,7 +4,7 @@
 	import { Dropdown } from 'flowbite-svelte';
 	import { items } from '@data/navbar';
 	import * as HOME from '@data/home';
-	import { t, setLocale } from '$lib/translations';
+	import { t, setLocale, locale } from '$lib/translations';
 	import BrazilIcon from '$lib/components/NavMenu/locale/brazil.svg?component';
 	import UnitedStatesIcon from '$lib/components/NavMenu/locale/united-states.svg?component';
 
@@ -30,7 +30,7 @@
 <div class="nav-menu">
 	<nav class="container flex flex-row items-center text-sm">
 		<a
-			href={`${base}/`}
+			href={`${base}/${$locale}`}
 			class="nav-menu-left decoration-none w-auto md:w-150px lg:w-auto row flex flex-row items-center cursor-pointer px-4 text-[var(--secondary-text)] self-stretch hover:bg-[color:var(--main-hover)]"
 		>
 			<UIcon icon="i-carbon-code" classes="text-2em" />
@@ -46,7 +46,7 @@
 		</div>
 		<div class="flex-row flex-1 self-center h-full justify-center hidden md:flex">
 			{#each items as item (item.title)}
-				<a href={`${base}${item.to}`} class="nav-menu-item !text-[var(--secondary-text)]">
+				<a href={`${base}/${$locale}${item.to}`} class="nav-menu-item !text-[var(--secondary-text)]">
 					<UIcon icon={item.icon} classes="text-1.3em" />
 					<span class="nav-menu-item-label">{$t(`nav.${item.title}`)}</span>
 				</a>
@@ -57,7 +57,7 @@
 		>
 			<div class="row hidden md:flex">
 				<a
-					href={`${base}/search`}
+					href={`${base}/${$locale}/search`}
 					class="text-inherit col-center self-stretch px-2 hover:bg-[color:var(--main-hover)]"
 				>
 					<UIcon icon="i-carbon-search" />
@@ -139,7 +139,7 @@
 		</div>
 		<div class="col gap-2 m-t-7">
 			<a
-				href={`${base}/search`}
+				href={`${base}/${$locale}/search`}
 				class="text-inherit decoration-none px-6 py-3 gap-2 row hover:bg-[color:var(--main-hover)]"
 				on:click={() => toggleExpanded(false)}
 			>
