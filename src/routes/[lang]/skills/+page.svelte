@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { groupByCategory } from '@data/skills';
+	import { locale } from '$lib/translations';
 	import { getAssetURL } from '$lib/data/assets';
 	import { t } from '$lib/translations';
 
@@ -39,7 +40,7 @@
 							<Card
 								classes={['cursor-pointer decoration-none']}
 								tiltDegree={1}
-								href={`${base}/skills/${skill.slug}`}
+								href={`${base}/${$locale}/skills/${skill.slug}`}
 								bgImg={getAssetURL(skill.logo)}
 								color={skill.color}
 							>

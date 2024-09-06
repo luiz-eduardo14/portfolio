@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { getAssetURL } from '$lib/data/assets';
 	import { title } from '@data/experience';
+	import { locale } from '$lib/translations';
 	import { getTimeDiff } from '$lib/utils';
 	import { t } from '$lib/translations';
 
@@ -66,7 +67,7 @@
 						{#each data.experience.skills as item}
 							<Chip
 								classes="inline-flex flex-row items-center justify-center"
-								href={`${base}/skills/${item.slug}`}
+								href={`${base}/${locale}/skills/${item.slug}`}
 							>
 								<CardLogo
 									src={getAssetURL(item.logo)}

@@ -72,9 +72,9 @@
 						<UIcon icon="i-carbon-sun" />
 					{/if}
 				</button>
-				<!-- <button id="language-selector" class="bg-transparent text-1em border-none cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)] px-2">
+				<button id="language-selector" class="bg-transparent text-1em border-none cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)] px-2">
 					<UIcon icon="i-material-symbols-language" />
-				</button> -->
+				</button>
 				<Dropdown 
 						triggeredBy="#language-selector" 
 						classContainer="bg-[color:var(--main-hover)] text-[var(--secondary-text)]"
@@ -85,9 +85,9 @@
 						<div 
 							class="ml-[-36px] px-2 flex gap-2 cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)]"
 							on:click={() => {
-								setLocale('pt-br');
-								sessionStorage.setItem('lang', 'pt-br');
-								addCookie('lang', 'pt-br');
+								setLocale('pt');
+								const href = location.href.replace($locale, 'pt');
+								location.href = href;
 							}}
 						>
 							<BrazilIcon width={24} height={24} />
@@ -100,9 +100,9 @@
 						<div 
 							class="ml-[-36px] px-2 flex gap-2 cursor-pointer hover:bg-[color:var(--main-hover)] text-[var(--secondary-text)]"
 							on:click={() => {
-								setLocale('en-us');
-								sessionStorage.setItem('lang', 'en-us');
-								addCookie('lang', 'en-us');
+								setLocale('en');
+								const href = location.href.replace($locale, 'en');
+								location.href = href;
 							}}
 						>
 							<UnitedStatesIcon width={24} height={24} />
@@ -128,7 +128,7 @@
 		<div class="flex-col flex-1 self-center h-full justify-center m-t-7">
 			{#each items as item}
 				<a
-					href={`${base}${item.to}`}
+					href={`${base}/${$locale}/${item.to}`}
 					class="nav-menu-item !text-[var(--secondary-text)] gap-5"
 					on:click={() => toggleExpanded(false)}
 				>

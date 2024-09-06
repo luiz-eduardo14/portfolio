@@ -2,6 +2,7 @@
 	import { filterItemsByQuery, type ItemOrSkill } from '$lib/utils/helpers';
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
+	import { locale } from '$lib/translations';
 	import * as experiences from '@data/experience';
 	import * as projects from '@data/projects';
 	import * as skills from '@data/skills';
@@ -86,7 +87,7 @@
 			{:else}
 				<div class="flex flex-row flex-wrap gap-1">
 					{#each result as item}
-						<Chip href={`${base}/${item.to}`} classes="flex flex-row items-center gap-2">
+						<Chip href={`${base}/${$locale}/${item.to}`} classes="flex flex-row items-center gap-2">
 							<UIcon icon={item.icon} />
 							<span>{item.name}</span>
 						</Chip>

@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { getAssetURL } from '$lib/data/assets';
 	import { title } from '@data/projects';
+	import { locale } from '$lib/translations';
 
 	import type { Project } from '$lib/types';
 
@@ -63,7 +64,7 @@
 						{#each data.project.skills as item}
 							<Chip
 								classes="inline-flex flex-row items-center justify-center"
-								href={`${base}/skills/${item.slug}`}
+								href={`${base}/${$locale}/skills/${item.slug}`}
 							>
 								<CardLogo
 									src={getAssetURL(item.logo)}

@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { computeExactDuration, countMonths, getMonthName } from '$lib/utils/helpers';
-	import Chip from '../Chip/Chip.svelte';
-	import Card from '../Card/Card.svelte';
-	import CardTitle from '../Card/CardTitle.svelte';
-	import CardLink from '../Card/CardLink.svelte';
-	import CardDivider from '../Card/CardDivider.svelte';
-	import ChipIcon from '../Chip/ChipIcon.svelte';
-	import CardLogo from '../Card/CardLogo.svelte';
-	import type { Project } from '$lib/types';
-	import { getAssetURL } from '$lib/data/assets';
 	import { base } from '$app/paths';
+	import { getAssetURL } from '$lib/data/assets';
+	import { locale, t } from '$lib/translations';
+	import type { Project } from '$lib/types';
+	import { computeExactDuration, getMonthName } from '$lib/utils/helpers';
+	import Card from '../Card/Card.svelte';
+	import CardDivider from '../Card/CardDivider.svelte';
+	import CardLink from '../Card/CardLink.svelte';
+	import CardLogo from '../Card/CardLogo.svelte';
+	import CardTitle from '../Card/CardTitle.svelte';
+	import Chip from '../Chip/Chip.svelte';
+	import ChipIcon from '../Chip/ChipIcon.svelte';
 	import UIcon from '../Icon/UIcon.svelte';
-	import { t } from '$lib/translations';
 
 	export let project: Project;
 
@@ -41,7 +41,7 @@
 		: null;
 </script>
 
-<Card color={project.color} href={`${base}/projects/${project.slug}`}>
+<Card color={project.color} href={`${base}/${locale}/projects/${project.slug}`}>
 	<CardLogo alt={project.name} src={getAssetURL(project.logo)} size={40} radius={'0'} />
 	<div class="m-t-20px row justify-between items-center">
 		<CardTitle title={project.name} />
@@ -81,7 +81,7 @@
 			<ChipIcon
 				logo={getAssetURL(tech.logo)}
 				name={tech.name}
-				href={`${base}/skills/${tech.slug}`}
+				href={`${base}/${locale}/skills/${tech.slug}`}
 			/>
 		{/each}
 	</div>

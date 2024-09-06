@@ -1,16 +1,17 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+	import { getAssetURL } from '$lib/data/assets';
+	import { t } from '$lib/translations';
 	import type { Experience } from '$lib/types';
-	import { computeExactDuration, getMonthName, getTimeDiff } from '$lib/utils/helpers';
+	import { computeExactDuration, getMonthName } from '$lib/utils/helpers';
+	import { locale } from '$lib/translations';
 	import Card from '../Card/Card.svelte';
+	import CardDivider from '../Card/CardDivider.svelte';
 	import CardLogo from '../Card/CardLogo.svelte';
 	import CardTitle from '../Card/CardTitle.svelte';
-	import ChipIcon from '../Chip/ChipIcon.svelte';
-	import { getAssetURL } from '$lib/data/assets';
-	import { base } from '$app/paths';
-	import UIcon from '../Icon/UIcon.svelte';
 	import Chip from '../Chip/Chip.svelte';
-	import CardDivider from '../Card/CardDivider.svelte';
-	import { t } from '$lib/translations';
+	import ChipIcon from '../Chip/ChipIcon.svelte';
+	import UIcon from '../Icon/UIcon.svelte';
 
 	export let experience: Experience;
 	function localeTimeExpression(duration: string): string {
@@ -50,7 +51,7 @@
 <Card
 	margin="0px 0px 20px 0px"
 	tiltDegree={2}
-	href={`${base}/experience/${experience.slug}`}
+	href={`${base}/${$locale}/experience/${experience.slug}`}
 	color={experience.color}
 >
 	<div class="col md:flex-row items-start gap-5 md:gap-1">
@@ -89,7 +90,7 @@
 					<ChipIcon
 						logo={getAssetURL(skill.logo)}
 						name={skill.name}
-						href={`${base}/skills/${skill.slug}`}
+						href={`${base}/${locale}/skills/${skill.slug}`}
 					/>
 				{/each}
 			</div>

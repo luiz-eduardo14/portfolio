@@ -1,120 +1,120 @@
 import i18n from 'sveltekit-i18n';
 
 const supportedLanguagesSsr = [{
-  lang: 'pt-br',
+  lang: 'pt',
 }, {
-  lang: 'pt-br',
+  lang: 'en',
 }];
 
-const defaultLocale = 'pt-br';
+const defaultLocale = 'en';
 
 /** @type {import('sveltekit-i18n').Config} */
 const config = ({
   fallbackLocale: defaultLocale,
   loaders: [
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'home',
       loader: async () => (
-        await import('./locale/en-us/home.json')
+        await import('./locale/en/home.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'pt',
       key: 'home',
       loader: async () => (
-        await import('./locale/pt-br/home.json')
+        await import('./locale/pt/home.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'nav',
       loader: async () => (
-        await import('./locale/en-us/nav.json')
+        await import('./locale/en/nav.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'pt',
       key: 'nav',
       loader: async () => (
-        await import('./locale/pt-br/nav.json')
+        await import('./locale/pt/nav.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'categories',
       loader: async () => (
-        await import('./locale/en-us/categories.json')
+        await import('./locale/en/categories.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'pt',
       key: 'categories',
       loader: async () => (
-        await import('./locale/pt-br/categories.json')
+        await import('./locale/pt/categories.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'general',
       loader: async () => (
-        await import('./locale/en-us/general.json')
+        await import('./locale/en/general.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'pt',
       key: 'general',
       loader: async () => (
-        await import('./locale/pt-br/general.json')
+        await import('./locale/pt/general.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'time',
       loader: async () => (
-        await import('./locale/en-us/time.json')
+        await import('./locale/en/time.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'pt',
       key: 'time',
       loader: async () => (
-        await import('./locale/pt-br/time.json')
+        await import('./locale/pt/time.json')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'pt',
       key: 'skills',
       loader: async () => (
-        await import('./locale/pt-br/skills/index')
+        await import('./locale/pt/skills/index')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'skills',
       loader: async () => (
-        await import('./locale/en-us/skills/index')
+        await import('./locale/en/skills/index')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'pt',
       key: 'education',
       loader: async () => (
-        await import('./locale/pt-br/education/index.js')
+        await import('./locale/pt/education/index.js')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'education',
       loader: async () => (
-        await import('./locale/en-us/education/index.js')
+        await import('./locale/en/education/index.js')
       ).default,
     },
     {
-      locale: 'pt-br',
+      locale: 'en',
       key: 'experience',
       loader: async () => (
-        await import('./locale/en-us/experience/index')
+        await import('./locale/en/experience/index')
       ).default,
     },
   ],
