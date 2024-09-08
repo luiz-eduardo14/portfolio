@@ -47,7 +47,7 @@ const Assets = {
 	SolidJs: a('solid.svg'),
 	Electron: a('electron.png'),
 	Flutter: a('flutter.svg'),
-	Java: a('java.png'),
+	Java: a('java.svg'),
 	AdonisJs: a('adonis.png'),
 	Android: a('android.png'),
 	Angular: a('angular.png'),

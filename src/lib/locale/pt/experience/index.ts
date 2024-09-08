@@ -3,9 +3,9 @@ import { ContractType } from "$lib/types";
 
 const traineRadar = {
     description: traineeRadarDescription,
-    shortDescription: 'My first experience with professional software development involved working as a full stack developer, creating and updating end-to-end features, always learning and evolving throughout the process.',
-    name: 'Trainee at Radar Saúde',
-    title: 'Trainee',
+    shortDescription: 'Minha primeira experiência com desenvolvimento de software profissional envolve trabalhar como desenvolvedor full stack, criando e atualizando funcionalidades de ponta a ponta, sempre aprendendo e evoluindo ao longo do processo.',
+    name: 'Estagiário na Radar Saúde',
+    title: 'Estagiário',
 }
 
 const contractType: {

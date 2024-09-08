@@ -117,6 +117,13 @@ const config = ({
         await import('./locale/en/experience/index')
       ).default,
     },
+    {
+      locale: 'pt',
+      key: 'experience',
+      loader: async () => (
+        await import('./locale/pt/experience/index')
+      ).default,
+    },
   ],
 });
 

@@ -19,7 +19,7 @@
 
 	export let data: { experience?: Experience };
 
-	$: computedTitle = data.experience ? `${data.experience.name} - ${$t('nav.experience')}` : title;
+	$: computedTitle = data.experience ? `${$t(`experience.${data.experience.slug}.title`)} - ${$t('nav.experience')}` : title;
 	export let timeDiffFormatted;
 	if (data.experience) {
 		const timeDiff = getTimeDiff(data.experience.period.from, data.experience.period.to);
@@ -42,7 +42,7 @@
 			<Banner img={getAssetURL(data.experience.logo)}>
 				<div class="col-center p-y-20">
 					<div class="text-0.9em">
-						<MainTitle>{data.experience.name}</MainTitle>
+						<MainTitle>{$t(`experience.${data.experience.slug}.name`)}</MainTitle>
 					</div>
 					<p class="font-300 text-[var(--tertiary-text)] m-y-2 text-center">
 						{data.experience.company} · {data.experience.location} · {data.experience.type}
@@ -84,7 +84,10 @@
 			</Banner>
 			<div class="pt-3 pb-1 overflow-x-hidden w-full">
 				<div class="px-10px m-y-5">
-					{#if data.experience.description}
+					<Markdown
+						content={$t(`experience.${data.experience.slug}.description`)}
+					/>
+					<!-- {#if data.experience.description}
 						<Markdown
 							content={data.experience.description ?? 'This place is yet to be filled...'}
 						/>
@@ -93,7 +96,7 @@
 							<UIcon icon="i-carbon-text-font" classes="text-3.5em" />
 							<p class="font-300">No description...</p>
 						</div>
-					{/if}
+					{/if} -->
 				</div>
 			</div>
 		</div>

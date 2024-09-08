@@ -61,7 +61,7 @@
 				<h3
 					class="flex text-[0.9em] flex-col items-start sm:flex-row sm:items-center justify-between sm:gap-5 md:flex-col md:items-start md:gap-0 lg:flex-row lg:items-center"
 				>
-					<CardTitle title={`${experience.name}`} />
+					<CardTitle title={$t(`experience.${experience.slug}.name`)} />
 				</h3>
 				<div class="row flex-wrap items-start m-b-2 gap-1 text-0.9em font-300">
 					{#each info as item}
@@ -84,7 +84,7 @@
 				</div>
 				<CardDivider />
 			</div>
-			<div class="experience-description text-[0.9em]">{experience.shortDescription}</div>
+			<div class="experience-description text-[0.9em]">{$t(`experience.${experience.slug}.shortDescription`)}</div>
 			<div class="flex flex-row flex-wrap mt-5">
 				{#each experience.skills as skill}
 					<ChipIcon

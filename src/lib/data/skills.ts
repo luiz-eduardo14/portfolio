@@ -76,6 +76,14 @@ export const items = [
 		category: 'pro-lang'
 	}),
 	defineSkill({
+		slug: 'html',
+		color: 'orange',
+		description: 'html.description',
+		logo: Assets.HTML,
+		name: 'HTML',
+		category: 'framework'
+	}),
+	defineSkill({
 		slug: 'reactjs',
 		color: 'cyan',
 		description: 'react.description',
