@@ -1,0 +1,1 @@
+import{P as s}from"./types.1ebf2f37.js";import{g as a}from"./skills.d2f01171.js";const l="Luiz Eduardo",i="Sagaz Carvalho",r=[{platform:s.GitHub,link:"https://github.com/luiz-eduardo14"},{platform:s.Linkedin,link:"https://www.linkedin.com/in/luiz-eduardo-sagaz-carvalho-365316239"}],n=a("js","css","html","reactjs","sass","rust","ts");export{r as a,i as l,l as n,n as s};
