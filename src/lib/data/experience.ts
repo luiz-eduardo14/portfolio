@@ -4,18 +4,21 @@ import { ContractType, type Experience } from '../types';
 
 export const items: Array<Experience> = [
 	{
-		slug: 'software-freelance',
-		company: 'Self-employed',
+		slug: 'junior-software-developer',
+		company: 'Radar Saúde',
 		description: 'Creating awesome applications for customers.',
-		contract: ContractType.Freelance,
+		contract: ContractType.FullTime,
 		type: 'Software Development',
-		location: 'Home',
-		period: { from: new Date() },
-		skills: getSkills('svelte', 'ts', 'sass', 'css', 'html', 'js', 'rust'),
+		location: 'São josé (SC) - Brazil',
+		period: { from: new Date(2023, 7, 0) },
+		skills: getSkills('ts', 'css', 'html', 'js', 'rust'),
 		name: 'Freelancer',
 		color: 'blue',
-		links: [],
-		logo: Assets.Unknown,
+		links: [{
+			label: 'Radar Saúde',
+			to: 'https://radarsaude.com.br',
+		}],
+		logo: Assets.RadarSaude,
 		shortDescription: 'Creating awesome applications for customers.'
 	},
 	{
@@ -29,8 +32,11 @@ export const items: Array<Experience> = [
 		skills: getSkills('java', 'ts', 'js', 'reactjs'),
 		name: 'trainee-radar',
 		color: 'blue',
-		links: [],
-		logo: Assets.Unknown,
+		links: [{
+			label: 'Radar Saúde',
+			to: 'https://radarsaude.com.br',
+		}],
+		logo: Assets.RadarSaude,
 		shortDescription: 'Creating awesome tools for developers.'
 	},
 ];

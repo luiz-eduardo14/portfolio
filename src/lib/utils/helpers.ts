@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import type { Item, Skill } from '$lib/types';
-import { t } from '$lib/translations'
 
 dayjs.extend(duration);
 
@@ -71,7 +70,7 @@ export function getTimeDiff(date1: Date, date2 = new Date(Date.now() + 1000 * 60
 
 	return {
 		number,
-		unit: ``
+		unit
 	};
 }
 

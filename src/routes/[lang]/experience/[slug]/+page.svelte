@@ -1,30 +1,56 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { getAssetURL } from '$lib/data/assets';
+	import { locale, t } from '$lib/translations';
+	import {
+		computeExactDuration,
+		getMonthName
+	} from '$lib/utils/helpers';
 	import { title } from '@data/experience';
-	import { locale } from '$lib/translations';
-	import { getTimeDiff } from '$lib/utils';
-	import { t } from '$lib/translations';
 
 	import type { Experience } from '$lib/types';
 
+	import Banner from '$lib/components/Banner/Banner.svelte';
+	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 	import CardLogo from '$lib/components/Card/CardLogo.svelte';
+	import Chip from '$lib/components/Chip/Chip.svelte';
+	import UIcon from '$lib/components/Icon/UIcon.svelte';
 	import MainTitle from '$lib/components/MainTitle/MainTitle.svelte';
 	import Markdown from '$lib/components/Markdown.svelte';
 	import TabTitle from '$lib/components/TabTitle.svelte';
-	import Chip from '$lib/components/Chip/Chip.svelte';
-	import Banner from '$lib/components/Banner/Banner.svelte';
-	import UIcon from '$lib/components/Icon/UIcon.svelte';
-	import CardDivider from '$lib/components/Card/CardDivider.svelte';
 
 	export let data: { experience?: Experience };
+
+	function localeTimeExpression(duration: string): string {
+			return duration
+					.replace('years', $t('time.years'))
+					.replace('year', $t('time.year'))
+					.replace('months', $t('time.months'))
+					.replace('month', $t('time.month'))
+					.replace('weeks', $t('time.weeks'))
+					.replace('week', $t('time.week'))
+					.replace('days', $t('time.days'))
+					.replace('day', $t('time.day'))
+					.replace('and', $t('general.and'));
+	};
+
+	// const months = getTimeDiff(experience.period.from, experience.period.to);
 
 	$: computedTitle = data.experience ? `${$t(`experience.${data.experience.slug}.title`)} - ${$t('nav.experience')}` : title;
 	export let timeDiffFormatted;
 	if (data.experience) {
-		const timeDiff = getTimeDiff(data.experience.period.from, data.experience.period.to);
-		const unit = $t(`time.${timeDiff.unit}`);
-		timeDiffFormatted = `${timeDiff.number} ${unit}`;
+		const exactDuration = localeTimeExpression(computeExactDuration(data.experience.period.from, data.experience.period.to));
+		const from = `${$t(`time.${getMonthName(
+			data.experience.period.from.getMonth()
+		)}`)} ${data.experience.period.from.getFullYear()}`;
+		const to = data.experience.period.to
+			? `${$t(`time.${getMonthName(
+				data.experience.period?.to?.getMonth() ?? 0
+			)}`)} ${data.experience.period.to?.getFullYear() ?? 0}`
+			: $t('time.Present');
+
+		const period = `${from} - ${to}`;
+		timeDiffFormatted = period;
 	}
 
 </script>
