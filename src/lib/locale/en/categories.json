@@ -9,7 +9,9 @@
     "testing": "Testing",
     "dev-tools": "Dev Tools",
     "markup-and-style": "Markup & Style",
+    "runtimes": "Runtimes",
     "design": "Design",
     "soft-skills": "Soft Skills",
-    "security": "Security"
+    "security": "Security",
+    "message-brokers": "Message Brokers"
 }

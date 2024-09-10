@@ -17,7 +17,8 @@ const categories = [
 	defineSkillCategory({ name: 'dev-tools', slug: 'devtools' }),
 	defineSkillCategory({ name: 'markup-and-style', slug: 'markup-style' }),
 	defineSkillCategory({ name: 'design', slug: 'design' }),
-	defineSkillCategory({ name: 'soft-skills', slug: 'soft' })
+	defineSkillCategory({ name: 'soft-skills', slug: 'soft' }),
+	defineSkillCategory({ name: 'message-brokers', slug: 'msg-broker' })
 ] as const;
 
 const defineSkill = <S extends string>(
@@ -76,11 +77,59 @@ export const items = [
 		category: 'pro-lang'
 	}),
 	defineSkill({
-		slug: 'html',
-		color: 'orange',
-		description: 'html.description',
-		logo: Assets.HTML,
-		name: 'HTML',
+		slug: 'nestjs',
+		color: 'red',
+		description: 'nestjs.description',
+		logo: Assets.NestJs,
+		name: 'Nestjs',
+		category: 'framework'
+	}),
+	defineSkill({
+		slug: 'spring-boot',
+		color: 'green',
+		description: 'spring-boot.description',
+		logo: Assets.SpringBoot,
+		name: 'Spring boot',
+		category: 'framework'
+	}),
+	defineSkill({
+		slug: 'spring-security',
+		color: 'green',
+		description: 'spring-security.description',
+		logo: Assets.SpringSecurity,
+		name: 'Spring security',
+		category: 'framework'
+	}),
+	defineSkill({
+		slug: 'spring-batch',
+		color: 'green',
+		description: 'spring-batch.description',
+		logo: Assets.SpringBatch,
+		name: 'Spring batch',
+		category: 'framework'
+	}),
+	defineSkill({
+		slug: 'tailwind',
+		color: 'blue',
+		description: 'tailwind.description',
+		logo: Assets.Tailwind,
+		name: 'Tailwind',
+		category: 'framework'
+	}),
+	defineSkill({
+		slug: 'react-native',
+		color: 'blue',
+		description: 'react-native.description',
+		logo: Assets.ReactNative,
+		name: 'React Native',
+		category: 'framework'
+	}),
+	defineSkill({
+		slug: 'jetpack-compose',
+		color: 'green',
+		description: 'jetpack-compose.description',
+		logo: Assets.JetpackCompose,
+		name: 'Jetpack Compose',
 		category: 'framework'
 	}),
 	defineSkill({
@@ -90,6 +139,102 @@ export const items = [
 		logo: Assets.ReactJs,
 		name: 'React Js',
 		category: 'library'
+	}),
+	defineSkill({
+		slug: 'puppeteer',
+		color: 'purple',
+		description: 'puppeteer.description',
+		logo: Assets.Puppeteer,
+		name: 'Puppeteer',
+		category: 'library'
+	}),
+	defineSkill({
+		slug: 'hibernate',
+		color: 'gray',
+		description: 'hibernate.description',
+		logo: Assets.Hibernate,
+		name: 'Hibernate',
+		category: 'library'
+	}),
+	defineSkill({
+		slug: 'mybatis',
+		color: 'red',
+		description: 'mybatis.description',
+		logo: Assets.MyBatis,
+		name: 'MyBatis',
+		category: 'library'
+	}),
+	defineSkill({
+		slug: 'tokio',
+		color: 'white',
+		description: 'tokio.description',
+		logo: Assets.Tokio,
+		name: 'Tokio',
+		category: 'library'
+	}),
+	defineSkill({
+		slug: 'slqx',
+		color: 'blue',
+		description: 'slqx.description',
+		logo: Assets.Unknown,
+		name: 'Sqlx',
+		category: 'library'
+	}),
+	defineSkill({
+		slug: 'docker',
+		color: 'blue',
+		description: 'docker.description',
+		logo: Assets.Docker,
+		name: 'Docker',
+		category: 'devops'
+	}),
+	defineSkill({
+		slug: 'grafana',
+		color: 'orange',
+		description: 'grafana.description',
+		logo: Assets.Grafana,
+		name: 'Grafana',
+		category: 'devops'
+	}),
+	defineSkill({
+		slug: 'rabbitmq',
+		color: 'orange',
+		description: 'rabbitmq.description',
+		logo: Assets.RabbitMQ,
+		name: 'RabbitMQ',
+		category: 'msg-broker'
+	}),
+	defineSkill({
+		slug: 'kafka',
+		color: 'white',
+		description: 'kafka.description',
+		logo: Assets.Kafka,
+		name: 'Kafka',
+		category: 'msg-broker'
+	}),
+	defineSkill({
+		slug: 'junit',
+		color: 'green',
+		description: 'junit.description',
+		logo: Assets.Junit,
+		name: 'Junit',
+		category: 'test'
+	}),
+	defineSkill({
+		slug: 'jest',
+		color: 'red',
+		description: 'jest.description',
+		logo: Assets.Jest,
+		name: 'Jest',
+		category: 'test'
+	}),
+	defineSkill({
+		slug: 'K6',
+		color: 'purple',
+		description: 'k6.description',
+		logo: Assets.K6,
+		name: 'K6',
+		category: 'test'
 	}),
 	defineSkill({
 		slug: 'css',

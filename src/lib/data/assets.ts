@@ -41,7 +41,6 @@ const Assets = {
 	ExpressJs: a('express.png'),
 	JavaScript: a('js.png'),
 	Fastify: a('fastify.svg', 'fastify-dark.png'),
-	NestJs: a('nest.svg'),
 	Quasar: a('quasar.svg'),
 	SolidJs: a('solid.svg'),
 	Electron: a('electron.png'),
@@ -78,7 +77,7 @@ const Assets = {
 	TailwindCss: a('tailwind.svg'),
 	ReactNative: a('react-native.svg'),
 	Puppeteer: a('puppeteer-light.svg', 'puppeteer-dark.svg'),
-	Nestjs: a('nestjs.svg'),
+	NestJs: a('nestjs.svg'),
 	MyBatis: a('mybatis.svg'),
 	Kafka: a('kafka-light.svg', 'kafka-dark.svg'),
 	Jwt: a('jwt.svg'),
@@ -86,6 +85,9 @@ const Assets = {
 	Jest: a('jest-light.svg', 'jest-dark.svg'),
 	Hibernate: a('hibernate.svg'),
 	Grafana: a('grafana.svg'),
+	K6: a('k6.svg'),
+	JetpackCompose: a('jetpack-compose.png'),
+	Tokio: a('tokio-light.svg', 'tokio-dark.svg'),
 };
 
 export default Assets;

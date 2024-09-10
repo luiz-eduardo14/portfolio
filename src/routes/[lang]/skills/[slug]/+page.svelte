@@ -53,7 +53,7 @@
 			if (item.skills.some((tech: any) => tech.slug === skill.slug)) {
 				out.push({
 					img: getAssetURL(item.logo),
-					display: `${item.name} @ ${item.company}`,
+					display: `${$t(`experience.${item.name}.title`)} @ ${item.company}`,
 					name: item.name,
 					type: 'experience',
 					url: `/experience/${item.slug}`
