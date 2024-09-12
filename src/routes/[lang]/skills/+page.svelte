@@ -38,7 +38,7 @@
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3 lg:gap-5 ">
 						{#each group.items as skill (skill.slug)}
 							<Card
-								classes={['cursor-pointer decoration-none']}
+								classes={[...(skill.description ?['cursor-pointer decoration-none'] : ['cursor-not-allowed decoration-none'])]}
 								tiltDegree={1}
 								href={skill.description ?`${base}/${$locale}/skills/${skill.slug}` : undefined}
 								bgImg={getAssetURL(skill.logo)}
