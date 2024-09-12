@@ -40,7 +40,7 @@
 							<Card
 								classes={['cursor-pointer decoration-none']}
 								tiltDegree={1}
-								href={`${base}/${$locale}/skills/${skill.slug}`}
+								href={skill.description ?`${base}/${$locale}/skills/${skill.slug}` : undefined}
 								bgImg={getAssetURL(skill.logo)}
 								color={skill.color}
 							>

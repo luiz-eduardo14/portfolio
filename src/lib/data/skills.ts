@@ -79,7 +79,7 @@ export const items = [
 	defineSkill({
 		slug: 'nestjs',
 		color: 'red',
-		description: 'nestjs.description',
+		// description: 'nestjs.description',
 		logo: Assets.NestJs,
 		name: 'Nestjs',
 		category: 'framework'
@@ -87,7 +87,7 @@ export const items = [
 	defineSkill({
 		slug: 'spring-boot',
 		color: 'green',
-		description: 'spring-boot.description',
+		// description: 'spring-boot.description',
 		logo: Assets.SpringBoot,
 		name: 'Spring boot',
 		category: 'framework'
@@ -95,7 +95,7 @@ export const items = [
 	defineSkill({
 		slug: 'spring-security',
 		color: 'green',
-		description: 'spring-security.description',
+		// description: 'spring-security.description',
 		logo: Assets.SpringSecurity,
 		name: 'Spring security',
 		category: 'framework'
@@ -103,7 +103,7 @@ export const items = [
 	defineSkill({
 		slug: 'spring-batch',
 		color: 'green',
-		description: 'spring-batch.description',
+		// description: 'spring-batch.description',
 		logo: Assets.SpringBatch,
 		name: 'Spring batch',
 		category: 'framework'
@@ -111,7 +111,7 @@ export const items = [
 	defineSkill({
 		slug: 'tailwind',
 		color: 'blue',
-		description: 'tailwind.description',
+		// description: 'tailwind.description',
 		logo: Assets.Tailwind,
 		name: 'Tailwind',
 		category: 'framework'
@@ -119,7 +119,7 @@ export const items = [
 	defineSkill({
 		slug: 'react-native',
 		color: 'blue',
-		description: 'react-native.description',
+		// description: 'react-native.description',
 		logo: Assets.ReactNative,
 		name: 'React Native',
 		category: 'framework'
@@ -127,7 +127,7 @@ export const items = [
 	defineSkill({
 		slug: 'jetpack-compose',
 		color: 'green',
-		description: 'jetpack-compose.description',
+		// description: 'jetpack-compose.description',
 		logo: Assets.JetpackCompose,
 		name: 'Jetpack Compose',
 		category: 'framework'
@@ -135,15 +135,31 @@ export const items = [
 	defineSkill({
 		slug: 'reactjs',
 		color: 'cyan',
-		description: 'react.description',
+		// description: 'react.description',
 		logo: Assets.ReactJs,
 		name: 'React Js',
 		category: 'library'
 	}),
 	defineSkill({
+		slug: 'react-navigation',
+		color: 'purple',
+		// description: 'react-navigation.description',
+		logo: Assets.ReactNavigation,
+		name: 'React Navigation',
+		category: 'library'
+	}),
+	defineSkill({
+		slug: 'react-router',
+		color: 'red',
+		// description: 'react-router.description',
+		logo: Assets.ReactRouter,
+		name: 'React Router',
+		category: 'library'
+	}),
+	defineSkill({
 		slug: 'puppeteer',
 		color: 'purple',
-		description: 'puppeteer.description',
+		// description: 'puppeteer.description',
 		logo: Assets.Puppeteer,
 		name: 'Puppeteer',
 		category: 'library'
@@ -151,7 +167,7 @@ export const items = [
 	defineSkill({
 		slug: 'hibernate',
 		color: 'gray',
-		description: 'hibernate.description',
+		// description: 'hibernate.description',
 		logo: Assets.Hibernate,
 		name: 'Hibernate',
 		category: 'library'
@@ -159,7 +175,7 @@ export const items = [
 	defineSkill({
 		slug: 'mybatis',
 		color: 'red',
-		description: 'mybatis.description',
+		// description: 'mybatis.description',
 		logo: Assets.MyBatis,
 		name: 'MyBatis',
 		category: 'library'
@@ -167,7 +183,7 @@ export const items = [
 	defineSkill({
 		slug: 'tokio',
 		color: 'white',
-		description: 'tokio.description',
+		// description: 'tokio.description',
 		logo: Assets.Tokio,
 		name: 'Tokio',
 		category: 'library'
@@ -175,15 +191,23 @@ export const items = [
 	defineSkill({
 		slug: 'slqx',
 		color: 'blue',
-		description: 'slqx.description',
+		// description: 'slqx.description',
 		logo: Assets.Unknown,
 		name: 'Sqlx',
 		category: 'library'
 	}),
 	defineSkill({
+		slug: 'vite',
+		color: 'yellow',
+		// description: 'vite.description',
+		logo: Assets.Vite,
+		name: 'vite',
+		category: 'devtools'
+	}),
+	defineSkill({
 		slug: 'docker',
 		color: 'blue',
-		description: 'docker.description',
+		// description: 'docker.description',
 		logo: Assets.Docker,
 		name: 'Docker',
 		category: 'devops'
@@ -191,7 +215,7 @@ export const items = [
 	defineSkill({
 		slug: 'grafana',
 		color: 'orange',
-		description: 'grafana.description',
+		// description: 'grafana.description',
 		logo: Assets.Grafana,
 		name: 'Grafana',
 		category: 'devops'
@@ -199,7 +223,7 @@ export const items = [
 	defineSkill({
 		slug: 'rabbitmq',
 		color: 'orange',
-		description: 'rabbitmq.description',
+		// description: 'rabbitmq.description',
 		logo: Assets.RabbitMQ,
 		name: 'RabbitMQ',
 		category: 'msg-broker'
@@ -207,7 +231,7 @@ export const items = [
 	defineSkill({
 		slug: 'kafka',
 		color: 'white',
-		description: 'kafka.description',
+		// description: 'kafka.description',
 		logo: Assets.Kafka,
 		name: 'Kafka',
 		category: 'msg-broker'
@@ -215,7 +239,7 @@ export const items = [
 	defineSkill({
 		slug: 'junit',
 		color: 'green',
-		description: 'junit.description',
+		// description: 'junit.description',
 		logo: Assets.Junit,
 		name: 'Junit',
 		category: 'test'
@@ -223,7 +247,7 @@ export const items = [
 	defineSkill({
 		slug: 'jest',
 		color: 'red',
-		description: 'jest.description',
+		// description: 'jest.description',
 		logo: Assets.Jest,
 		name: 'Jest',
 		category: 'test'
@@ -231,7 +255,7 @@ export const items = [
 	defineSkill({
 		slug: 'K6',
 		color: 'purple',
-		description: 'k6.description',
+		// description: 'k6.description',
 		logo: Assets.K6,
 		name: 'K6',
 		category: 'test'
@@ -239,7 +263,7 @@ export const items = [
 	defineSkill({
 		slug: 'css',
 		color: 'blue',
-		description: 'css.description',
+		// description: 'css.description',
 		logo: Assets.CSS,
 		name: 'CSS',
 		category: 'markup-style'
@@ -247,7 +271,7 @@ export const items = [
 	defineSkill({
 		slug: 'html',
 		color: 'orange',
-		description: 'html.description',
+		// description: 'html.description',
 		logo: Assets.HTML,
 		name: 'HTML',
 		category: 'markup-style'

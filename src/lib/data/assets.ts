@@ -88,6 +88,8 @@ const Assets = {
 	K6: a('k6.svg'),
 	JetpackCompose: a('jetpack-compose.png'),
 	Tokio: a('tokio-light.svg', 'tokio-dark.svg'),
+	ReactRouter: a('react-router-light.svg', 'react-router-dark.svg'),
+	ReactNavigation: a('react-navigation.png'),
 };
 
 export default Assets;
